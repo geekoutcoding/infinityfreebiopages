@@ -1,184 +1,293 @@
-<div class="goc-bio-wrapper">
-  <div class="goc-header">
-    <div class="goc-logo">GeekOut</div>
-    <h1>Bio Links</h1>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CHANGE_NAME | Bio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #050509;
+      --card-bg: #0b0b12;
+      --accent: #ff4b9f;
+      --accent-soft: rgba(255, 75, 159, 0.2);
+      --text-main: #ffffff;
+      --text-muted: #a0a0b5;
+      --border: #1b1b26;
+      --radius-lg: 18px;
+      --radius-md: 999px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.6);
+    }
 
-  <p class="goc-subtitle">
-    Claim your free, custom bio link when you build your website using the GeekOut Engine.
-  </p>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+    }
 
-  <div class="goc-card">
-    <h2>How It Works</h2>
-    <p>
-      1. Fork the official GitHub repository:<br>
-      <a href="https://github.com/geekoutcoding/infinityfreebios" target="_blank">
-        github.com/geekoutcoding/infinityfreebios
-      </a>
-    </p>
+    body {
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #181827 0, #050509 55%);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
 
-    <p>
-      2. Create a file named <strong>domain.md</strong> inside your fork.
-    </p>
+    .bio-wrapper {
+      width: 100%;
+      max-width: 420px;
+    }
 
-    <p>
-      3. Inside that file, describe how you want your bio link to look using this format:
-    </p>
+    .bio-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      padding: 22px 20px 18px;
+      position: relative;
+      overflow: hidden;
+    }
 
-    <code>infree.hs.vc/&lt;yourpage&gt;</code>
+    .glow {
+      position: absolute;
+      inset: -40%;
+      background: radial-gradient(circle at top, var(--accent-soft), transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
 
-    <p class="goc-example-title">Example of a clean, professional bio link:</p>
-    <code>infree.hs.vc/josh</code>
+    .bio-inner {
+      position: relative;
+      z-index: 1;
+    }
 
-    <p class="goc-example-title">Or a more fun, creative one:</p>
-    <code>infree.hs.vc/pixelwizard</code>
+    .avatar-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
 
-    <p class="goc-example-title">Or something simple and minimal:</p>
-    <code>infree.hs.vc/dev</code>
-  </div>
+    .avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 26px;
+      border: 2px solid rgba(255, 255, 255, 0.08);
+      background-size: cover;
+      background-position: center;
+      background-image: url("CHANGE_AVATAR_URL");
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+    }
 
-  <div class="goc-card">
-    <h2>Your free bio link format</h2>
-    <p class="goc-subs">
-      Every page lives under: <strong>infree.hs.vc/&lt;yourpage&gt;</strong>
-    </p>
-    <p>
-      Just choose a unique page name (like <code>josh</code>, <code>studio</code>, or <code>geekout</code>)  
-      and we’ll host your bio at that URL.
-    </p>
-  </div>
+    .name {
+      text-align: center;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
 
-  <div class="goc-card">
-    <h2>How to Describe Your Bio Link</h2>
-    <p>
-      In your <strong>domain.md</strong> file, write a short description of how you want your link and page to appear.  
-      This helps us generate a clean, readable, and unique bio page for you.
-    </p>
+    .tagline {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
 
-    <p class="goc-example-title">You can describe things like:</p>
+    .badge-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
 
-    <ul class="goc-list">
-      <li><strong>Page name</strong> — what you want after <code>infree.hs.vc/</code>.</li>
-      <li><strong>Theme</strong> — dark, neon, minimal, retro, glossy, etc.</li>
-      <li><strong>Style</strong> — professional, playful, techy, aesthetic.</li>
-      <li><strong>Purpose</strong> — portfolio, socials hub, project showcase, creator page.</li>
-    </ul>
+    .badge {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.35);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
 
-    <p class="goc-example-title">Example description:</p>
-    <div class="goc-description-box">
-      I want my bio link to be <strong>infree.hs.vc/josh</strong>.<br>
-      Make it dark mode with neon blue accents.<br>
-      Include links to my GitHub, Discord, and main GeekOut projects.<br>
-      Keep it clean and minimal.
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .link-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(8, 8, 16, 0.9);
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 14px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease,
+        border-color 0.12s ease, background 0.12s ease;
+    }
+
+    .link-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+      border-color: var(--accent-soft);
+      background: rgba(12, 12, 22, 1);
+    }
+
+    .link-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .link-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    .link-label-main {
+      font-weight: 500;
+    }
+
+    .link-label-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .link-right {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .link-primary {
+      border-color: var(--accent-soft);
+      background: linear-gradient(90deg, rgba(255, 75, 159, 0.18), rgba(0, 0, 0, 0.7));
+    }
+
+    .link-primary .link-icon {
+      background: rgba(255, 75, 159, 0.2);
+      color: var(--accent);
+    }
+
+    .footer-note {
+      text-align: center;
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .footer-note span {
+      color: var(--accent);
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="bio-wrapper">
+    <div class="bio-card">
+      <div class="glow"></div>
+      <div class="bio-inner">
+        <!-- AVATAR + NAME + TAGLINE -->
+        <div class="avatar-wrap">
+          <!-- CHANGE_AVATAR_URL in CSS above -->
+          <div class="avatar"></div>
+        </div>
+
+        <div class="name">CHANGE_NAME</div>
+        <div class="tagline">CHANGE_SHORT_TAGLINE (e.g. Web IDEs • Games • Tools)</div>
+
+        <!-- BADGES -->
+        <div class="badge-row">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            <span>CHANGE_BADGE_1 (e.g. GeekOutCoding)</span>
+          </div>
+          <div class="badge">
+            <span>CHANGE_BADGE_2 (e.g. Developer)</span>
+          </div>
+          <div class="badge">
+            <span>CHANGE_BADGE_3 (e.g. Open Source)</span>
+          </div>
+        </div>
+
+        <!-- LINKS -->
+        <div class="links">
+          <!-- MAIN / FEATURED LINK -->
+          <a href="CHANGE_MAIN_LINK_URL" class="link-btn link-primary" target="_blank">
+            <div class="link-left">
+              <div class="link-icon">★</div>
+              <div>
+                <div class="link-label-main">CHANGE_MAIN_LINK_TITLE (e.g. Main Project)</div>
+                <div class="link-label-sub">CHANGE_MAIN_LINK_SUB (e.g. Live Demo)</div>
+              </div>
+            </div>
+            <div class="link-right">OPEN</div>
+          </a>
+
+          <!-- OTHER LINKS -->
+          <a href="CHANGE_LINK_2_URL" class="link-btn" target="_blank">
+            <div class="link-left">
+              <div class="link-icon">GH</div>
+              <div>
+                <div class="link-label-main">CHANGE_LINK_2_TITLE (e.g. GitHub)</div>
+                <div class="link-label-sub">CHANGE_LINK_2_SUB (e.g. Repos)</div>
+              </div>
+            </div>
+            <div class="link-right">@CHANGE_HANDLE</div>
+          </a>
+
+          <a href="CHANGE_LINK_3_URL" class="link-btn" target="_blank">
+            <div class="link-left">
+              <div class="link-icon">DC</div>
+              <div>
+                <div class="link-label-main">CHANGE_LINK_3_TITLE (e.g. Discord)</div>
+                <div class="link-label-sub">CHANGE_LINK_3_SUB (e.g. Community)</div>
+              </div>
+            </div>
+            <div class="link-right">JOIN</div>
+          </a>
+
+          <a href="CHANGE_LINK_4_URL" class="link-btn" target="_blank">
+            <div class="link-left">
+              <div class="link-icon">🌐</div>
+              <div>
+                <div class="link-label-main">CHANGE_LINK_4_TITLE (e.g. Website)</div>
+                <div class="link-label-sub">CHANGE_LINK_4_SUB (e.g. Portfolio)</div>
+              </div>
+            </div>
+            <div class="link-right">VIEW</div>
+          </a>
+        </div>
+
+        <!-- FOOTER NOTE -->
+        <div class="footer-note">
+          Built with <span>CHANGE_PROJECT_NAME</span> • CHANGE_SMALL_NOTE (e.g. “Web IDEs for everyone”)
+        </div>
+      </div>
     </div>
   </div>
-</div>
-
-<style>
-  .goc-bio-wrapper {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 20px;
-    font-family: "Inter", "Segoe UI", sans-serif;
-    color: #e8e8e8;
-  }
-
-  .goc-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-
-  .goc-logo {
-    font-size: 42px;
-    font-weight: 900;
-    background: linear-gradient(90deg, #00d0ff, #00ffa6);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: -1px;
-  }
-
-  .goc-header h1 {
-    margin-top: -5px;
-    font-size: 32px;
-    font-weight: 700;
-  }
-
-  .goc-subtitle {
-    text-align: center;
-    font-size: 18px;
-    color: #bfbfbf;
-    margin-bottom: 30px;
-  }
-
-  .goc-card {
-    background: #0f0f0f;
-    border: 1px solid #222;
-    padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.4);
-  }
-
-  .goc-card h2 {
-    font-size: 22px;
-    margin-bottom: 12px;
-    background: linear-gradient(90deg, #00ffa6, #00d0ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .goc-card p {
-    line-height: 1.6;
-    margin-bottom: 12px;
-  }
-
-  .goc-card a {
-    color: #00ffa6;
-    text-decoration: none;
-    font-weight: 600;
-  }
-
-  .goc-card a:hover {
-    text-decoration: underline;
-  }
-
-  code {
-    display: inline-block;
-    background: #1a1a1a;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 15px;
-    color: #00d0ff;
-    margin: 6px 0;
-  }
-
-  .goc-example-title {
-    margin-top: 10px;
-    font-weight: 600;
-    color: #dcdcdc;
-  }
-
-  .goc-subs {
-    font-size: 16px;
-    font-weight: 500;
-    color: #e6e6e6;
-  }
-
-  .goc-list {
-    margin: 10px 0 15px 20px;
-  }
-
-  .goc-list li {
-    margin-bottom: 6px;
-  }
-
-  .goc-description-box {
-    background: #141414;
-    border: 1px solid #333;
-    padding: 12px 15px;
-    border-radius: 8px;
-    font-size: 15px;
-    line-height: 1.5;
-    color: #cfcfcf;
-  }
-</style>
+</body>
+</html>
