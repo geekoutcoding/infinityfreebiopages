@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>CHANGE_NAME | Bio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     :root {
       --bg: #050509;
@@ -22,8 +23,7 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
     }
 
     body {
@@ -36,6 +36,39 @@
       padding: 20px;
     }
 
+    /* POPUP */
+    .popup-notice {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 15, 25, 0.95);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      font-size: 14px;
+      z-index: 9999;
+      opacity: 0;
+      pointer-events: none;
+      animation: popupFade 5s ease forwards;
+    }
+
+    .popup-notice a {
+      color: #ff4b9f;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @keyframes popupFade {
+      0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+      10% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      80% { opacity: 1; }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    }
+
+    /* BIO CARD */
     .bio-wrapper {
       width: 100%;
       max-width: 420px;
@@ -140,8 +173,7 @@
       color: var(--text-main);
       text-decoration: none;
       font-size: 14px;
-      transition: transform 0.12s ease, box-shadow 0.12s ease,
-        border-color 0.12s ease, background 0.12s ease;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease, background 0.12s ease;
     }
 
     .link-btn:hover {
@@ -205,89 +237,83 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!-- POPUP -->
+  <div class="popup-notice" id="popupNotice">
+    If this is a mess, this is a placeholder website that will look like your bio link by forking 
+    <a href="https://github.com/geekoutcoding/infinityfreebios" target="_blank">github.com/geekoutcoding/infinityfreebios</a>
+  </div>
+
+  <!-- BIO CARD -->
   <div class="bio-wrapper">
     <div class="bio-card">
       <div class="glow"></div>
       <div class="bio-inner">
-        <!-- AVATAR + NAME + TAGLINE -->
+
         <div class="avatar-wrap">
-          <!-- CHANGE_AVATAR_URL in CSS above -->
           <div class="avatar"></div>
         </div>
 
         <div class="name">CHANGE_NAME</div>
-        <div class="tagline">CHANGE_SHORT_TAGLINE (e.g. Web IDEs • Games • Tools)</div>
+        <div class="tagline">CHANGE_TAGLINE</div>
 
-        <!-- BADGES -->
         <div class="badge-row">
-          <div class="badge">
-            <span class="badge-dot"></span>
-            <span>CHANGE_BADGE_1 (e.g. GeekOutCoding)</span>
-          </div>
-          <div class="badge">
-            <span>CHANGE_BADGE_2 (e.g. Developer)</span>
-          </div>
-          <div class="badge">
-            <span>CHANGE_BADGE_3 (e.g. Open Source)</span>
-          </div>
+          <div class="badge"><span class="badge-dot"></span>CHANGE_BADGE_1</div>
+          <div class="badge">CHANGE_BADGE_2</div>
+          <div class="badge">CHANGE_BADGE_3</div>
         </div>
 
-        <!-- LINKS -->
         <div class="links">
-          <!-- MAIN / FEATURED LINK -->
-          <a href="CHANGE_MAIN_LINK_URL" class="link-btn link-primary" target="_blank">
+          <a href="CHANGE_MAIN_LINK" class="link-btn link-primary" target="_blank">
             <div class="link-left">
               <div class="link-icon">★</div>
               <div>
-                <div class="link-label-main">CHANGE_MAIN_LINK_TITLE (e.g. Main Project)</div>
-                <div class="link-label-sub">CHANGE_MAIN_LINK_SUB (e.g. Live Demo)</div>
+                <div class="link-label-main">CHANGE_MAIN_TITLE</div>
+                <div class="link-label-sub">CHANGE_MAIN_SUB</div>
               </div>
             </div>
             <div class="link-right">OPEN</div>
           </a>
 
-          <!-- OTHER LINKS -->
-          <a href="CHANGE_LINK_2_URL" class="link-btn" target="_blank">
+          <a href="CHANGE_LINK_2" class="link-btn" target="_blank">
             <div class="link-left">
               <div class="link-icon">GH</div>
               <div>
-                <div class="link-label-main">CHANGE_LINK_2_TITLE (e.g. GitHub)</div>
-                <div class="link-label-sub">CHANGE_LINK_2_SUB (e.g. Repos)</div>
+                <div class="link-label-main">GitHub</div>
+                <div class="link-label-sub">Repos</div>
               </div>
             </div>
             <div class="link-right">@CHANGE_HANDLE</div>
           </a>
 
-          <a href="CHANGE_LINK_3_URL" class="link-btn" target="_blank">
+          <a href="CHANGE_LINK_3" class="link-btn" target="_blank">
             <div class="link-left">
               <div class="link-icon">DC</div>
               <div>
-                <div class="link-label-main">CHANGE_LINK_3_TITLE (e.g. Discord)</div>
-                <div class="link-label-sub">CHANGE_LINK_3_SUB (e.g. Community)</div>
+                <div class="link-label-main">Discord</div>
+                <div class="link-label-sub">Community</div>
               </div>
             </div>
             <div class="link-right">JOIN</div>
           </a>
-
-          <a href="CHANGE_LINK_4_URL" class="link-btn" target="_blank">
-            <div class="link-left">
-              <div class="link-icon">🌐</div>
-              <div>
-                <div class="link-label-main">CHANGE_LINK_4_TITLE (e.g. Website)</div>
-                <div class="link-label-sub">CHANGE_LINK_4_SUB (e.g. Portfolio)</div>
-              </div>
-            </div>
-            <div class="link-right">VIEW</div>
-          </a>
         </div>
 
-        <!-- FOOTER NOTE -->
         <div class="footer-note">
-          Built with <span>CHANGE_PROJECT_NAME</span> • CHANGE_SMALL_NOTE (e.g. “Web IDEs for everyone”)
+          Built with <span>CHANGE_PROJECT_NAME</span>
         </div>
+
       </div>
     </div>
   </div>
+
+  <script>
+    setTimeout(() => {
+      const popup = document.getElementById("popupNotice");
+      if (popup) popup.style.display = "none";
+    }, 5200);
+  </script>
+
 </body>
 </html>
